@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux'
+import { increadVote } from '../reducers/anecdoteReducer'
 
 const AnecdoteList = (props) => {
     const anecdotes = useSelector(state => 
@@ -8,10 +9,7 @@ const AnecdoteList = (props) => {
 
     const vote = (id) => {
         console.log('vote', id)
-        dispatch({
-          'data':{'id':id},
-          'type':'VOTE'
-        })
+        dispatch(increadVote(id))
     }
 
     return(
