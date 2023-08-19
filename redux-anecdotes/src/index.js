@@ -5,7 +5,7 @@ import { Provider } from 'react-redux'
 import App from './App'
 import anecdoteReducer from './reducers/anecdoteReducer'
 import filterReducer from './reducers/filterReducer'
-
+import notificationReducer from './reducers/notificationReducer'
 //state = {anecdotes: initialAnidotes, filter:''}
 //dispatch(state,action) => will be implemeted in two reducers, with the state para is different,
 // but action para is the same
@@ -13,7 +13,8 @@ import filterReducer from './reducers/filterReducer'
 const store = configureStore({
   reducer :{
     anecdotes: anecdoteReducer,
-    filter: filterReducer
+    filter: filterReducer,
+    notification: notificationReducer
   }
 })
 
