@@ -39,6 +39,11 @@
       "content": "too short anecdote, must have length 5 or more",
       "votes": 0,
       "id": "9DUyOrk"
+    },
+    {
+      "content": "Which state management solution to choose?",
+      "votes": 5,
+      "id": "xEW3hia"
     }
   ]
 }

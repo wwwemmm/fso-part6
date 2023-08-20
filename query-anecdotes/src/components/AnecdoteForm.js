@@ -7,7 +7,7 @@ const AnecdoteForm = () => {
   const [counter, dispatch] = useContext(CounterContext)
 
   const handleAddAnecdoteError = ()=>{
-    dispatch({type:'ERROR', message:`Anecdote's length should at least 5 chars`})
+    dispatch({type:'ERROR', message:`too short anecdote, must have length 5 or more`})
     setTimeout(function() {
       dispatch({type:'RESET', message:``})
     }, 5000)
