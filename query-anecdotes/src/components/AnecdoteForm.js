@@ -1,9 +1,20 @@
 import { useMutation, useQueryClient } from 'react-query'
 import { createAnecdote } from '../requests'
+import { useContext } from 'react'
+import CounterContext from '../CounterContext'
 
 const AnecdoteForm = () => {
-  const queryClient = useQueryClient()
+  const [counter, dispatch] = useContext(CounterContext)
 
+  const handleAddAnecdoteError = ()=>{
+    dispatch({type:'ERROR', message:`Anecdote's length should at least 5 chars`})
+    setTimeout(function() {
+      dispatch({type:'RESET', message:``})
+    }, 5000)
+  }
+  
+  const queryClient = useQueryClient()
+  
   const newAnecdoteMutation = useMutation(createAnecdote, {
     onSuccess: () => {
       queryClient.invalidateQueries('anecdotes')
@@ -15,7 +26,9 @@ const AnecdoteForm = () => {
     const content = event.target.anecdote.value
     event.target.anecdote.value = ''
     console.log('new anecdote')
-    newAnecdoteMutation.mutate({content, votes:0})
+    newAnecdoteMutation.mutate({content, votes:0},{
+      onError:handleAddAnecdoteError
+    })
 }
 
   return (

@@ -19,7 +19,7 @@ const App = () => {
     return <div>loading data...</div>
   }
 
-  const anecdotes = result.data
+  const anecdotes = result.data.sort((a, b) => b.votes - a.votes)
   return (
     <CounterContextProvider>
     <div>
