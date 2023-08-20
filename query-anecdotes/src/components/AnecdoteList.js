@@ -1,5 +1,5 @@
-import { useQuery, useMutation,useQueryClient } from 'react-query'
-import { getAnecdotes, updateAnecdote } from '../requests'
+import { useMutation,useQueryClient } from 'react-query'
+import { updateAnecdote } from '../requests'
 import { useContext } from 'react'
 import CounterContext from '../CounterContext'
 const AnecdoteList = ({anecdotes}) => {
@@ -15,7 +15,10 @@ const AnecdoteList = ({anecdotes}) => {
   const handleVote = (anecdote) => {
     console.log('vote')
     updateAnecdoteMutation.mutate({...anecdote, votes:anecdote.votes+1})
-    dispatch({type:'VOTE', message:'TEST'})
+    dispatch({type:'VOTE', message:`anecdote ${anecdote.content} voted`})
+    setTimeout(function() {
+      dispatch({type:'RESET', message:``})
+    }, 5000)
   }
 
   return(
