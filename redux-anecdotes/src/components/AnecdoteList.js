@@ -9,8 +9,8 @@ const AnecdoteList = (props) => {
     const dispatch = useDispatch()
 
     const vote = (anecdote) => {
-        console.log('vote', anecdote.id)
-        dispatch(increadVote(anecdote.id))
+        //console.log('vote', anecdote.id)
+        dispatch(increadVote(anecdote))
         dispatch(setNotification(`you voted '${anecdote.content}'`))
         setTimeout(function() {
           dispatch(removeNotification(``))
