@@ -1,3 +1,7 @@
+import CounterContext from '../CounterContext'
+import { useContext } from 'react'
+
+
 const Notification = () => {
   const style = {
     border: 'solid',
@@ -5,12 +9,15 @@ const Notification = () => {
     borderWidth: 1,
     marginBottom: 5
   }
-  
-  if (true) return null
-
-  return (
-    <div style={style}>
-      
+  const [counter, dispatch] = useContext(CounterContext)
+  const hasMessage = counter !== ''
+  return(
+    <div>
+      {hasMessage && 
+      <div style={style}>
+        {counter}
+      </div>
+      }
     </div>
   )
 }

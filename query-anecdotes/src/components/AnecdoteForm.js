@@ -1,5 +1,5 @@
-import { useQuery, useMutation, useQueryClient } from 'react-query'
-import { getAnecdotes, createAnecdote } from '../requests'
+import { useMutation, useQueryClient } from 'react-query'
+import { createAnecdote } from '../requests'
 
 const AnecdoteForm = () => {
   const queryClient = useQueryClient()
